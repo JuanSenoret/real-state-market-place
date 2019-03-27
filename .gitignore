@@ -1,0 +1,11 @@
+# Mac folders
+.idea
+.DS_Store
+.vscode/
+
+# truffle files/folders
+eth-contracts/truffle.js
+eth-contracts/build/
+
+# Dependency directories
+eth-contracts/node_modules

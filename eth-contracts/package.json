@@ -1,0 +1,22 @@
+{
+  "name": "capstone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Juan Senoret <juansenoret@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "openzeppelin-solidity": "^2.2.0",
+    "solc": "^0.5.2",
+    "solc-js": "^0.5.2",
+    "truffle": "^5.0.7",
+    "truffle-hdwallet-provider": "^1.0.5",
+    "web3": "^1.0.0-beta.46"
+  },
+  "dependencies": {
+  }
+}
