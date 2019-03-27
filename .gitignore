@@ -4,7 +4,7 @@
 .vscode/
 
 # truffle files/folders
-eth-contracts/truffle.js
+eth-contracts/truffle-config.js
 eth-contracts/build/
 
 # Dependency directories
