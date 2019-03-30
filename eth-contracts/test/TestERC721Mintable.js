@@ -1,45 +1,72 @@
-var ERC721MintableComplete = artifacts.require('ERC721MintableComplete');
+var MyCustomERC721Token = artifacts.require('MyCustomERC721Token');
 
-contract('TestERC721Mintable', accounts => {
+contract('MyCustomERC721Token', accounts => {
 
-    const account_one = accounts[0];
-    const account_two = accounts[1];
+    const name = 'RealState';
+    const symbol = 'RST';
+    const owner = accounts[0];
+    const account_one = accounts[1];
+    const account_two = accounts[2];
+    const tokenId1 = 1111;
+    const tokenId2 = 2222;
+    const tokenUri1 = 'https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/' + tokenId1;
+    const tokenUri2 = 'https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/' + tokenId2;
+    let result;
+    let tx;
 
-    describe('match erc721 spec', function () {
-        beforeEach(async function () { 
-            this.contract = await ERC721MintableComplete.new({from: account_one});
+    describe('match erc721 spec', () => {
+        beforeEach(async () => { 
+            this.contract = await MyCustomERC721Token.new(name, symbol, {from: owner});
 
-            // TODO: mint multiple tokens
+            // DONE: mint multiple tokens
+            await this.contract.mint(account_one, tokenId1, {from: owner});
+            await this.contract.mint(account_one, tokenId2, {from: owner});
         })
 
-        it('should return total supply', async function () { 
-            
+        it('should return total supply', async () => {
+            result = await this.contract.totalSupply.call({from: owner});
+            // Check the result total supply
+            assert.equal(result, 2, 'Error: Invalid total supply');
         })
 
-        it('should get token balance', async function () { 
-            
+        it('should get token balance', async () => {
+            result = await this.contract.balanceOf(account_one, {from: owner});
+            // Check the result balance of
+            assert.equal(result, 2, 'Error: Invalid balance');
         })
 
         // token uri should be complete i.e: https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/1
-        it('should return token uri', async function () { 
-            
+        it('should return token uri', async () => {
+            // Get token uri for token Id 1
+            result = await this.contract.tokenURI(tokenId1, {from: owner});
+            // Check the result balance of
+            assert.equal(result, tokenUri1, 'Error: Invalid token uri 1');
+
+            // Get token uri for token Id 2
+            result = await this.contract.tokenURI(tokenId2, {from: owner});
+            // Check the result balance of
+            assert.equal(result, tokenUri2, 'Error: Invalid token uri 2');
         })
 
-        it('should transfer token from one owner to another', async function () { 
-            
+        it('should transfer token from one owner to another', async () => { 
+            tx = await this.contract.transferFrom(account_one, account_two, tokenId2, {from: account_one});
+            assert.equal(tx.logs[0].event, 'Transfer');
+            assert.equal(tx.logs[0].args.from, account_one);
+            assert.equal(tx.logs[0].args.to, account_two);
+            assert.equal(tx.logs[0].args.tokenId, tokenId2);
         })
     });
 
-    describe('have ownership properties', function () {
-        beforeEach(async function () { 
-            this.contract = await ERC721MintableComplete.new({from: account_one});
+    describe('have ownership properties', () => {
+        beforeEach(async () => { 
+            this.contract = await MyCustomERC721Token.new(name, symbol, {from: owner});
         })
 
-        it('should fail when minting when address is not contract owner', async function () { 
+        it('should fail when minting when address is not contract owner', async () => { 
             
         })
 
-        it('should return contract owner', async function () { 
+        it('should return contract owner', async () => { 
             
         })
 
