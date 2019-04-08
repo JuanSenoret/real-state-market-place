@@ -6,8 +6,8 @@ const proofInvalid = require('../config/proof-invalid.json');
 contract('Verifier', accounts => {
 
     const owner = accounts[0];
-    const name = 'RealState';
-    const symbol = 'RST';
+    const name = 'Real-State-Senoret-ERC721- NFT';
+    const symbol = 'RSTSE';
     const tokenId1 = 1111;
     const tokenUri1 = 'https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/' + tokenId1;
     let result;

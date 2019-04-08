@@ -12,7 +12,7 @@ module.exports = function(deployer, network, accounts) {
     // Deploy Verifier and SolnSquareVerifier contracts
     deployer.deploy(Verifier, {from: accounts[0]})
     .then(() => {
-        return deployer.deploy(SolnSquareVerifier, Verifier.address, "MyERC721", "MyERC721", {from: accounts[0]})
+        return deployer.deploy(SolnSquareVerifier, Verifier.address, "Real-State-Senoret-ERC721- NFT", "RSTSE", {from: accounts[0]})
         .then(async () => {
           // Store in client the contracts ABIs and addresses
           await fs.writeFileSync(__dirname + '/../../client/src/assets/contract/SolnSquareVerifier-Rinkeby.json',JSON.stringify(SolnSquareVerifier, null, '\t'), 'utf-8');
@@ -27,7 +27,7 @@ module.exports = function(deployer, network, accounts) {
     // Deploy Verifier and SolnSquareVerifier contracts
     deployer.deploy(Verifier, {from: accounts[0]})
     .then(() => {
-        return deployer.deploy(SolnSquareVerifier, Verifier.address, "MyERC721", "MyERC721", {from: accounts[0]})
+        return deployer.deploy(SolnSquareVerifier, Verifier.address, "Real-State-Senoret-ERC721- NFT", "RSTSE", {from: accounts[0]})
         .then(async () => {
           let config = {
             localhost: {

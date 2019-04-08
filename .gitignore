@@ -5,7 +5,6 @@
 
 # truffle files/folders
 eth-contracts/truffle-config.js
-eth-contracts/build/
 
 # Dependency directories
 eth-contracts/node_modules
