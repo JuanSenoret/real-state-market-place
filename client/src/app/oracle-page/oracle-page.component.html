@@ -1,0 +1,55 @@
+<div class="custom-container" fxLayout="row">
+  <mat-card class="example-card" fxFlex="80">
+    <mat-card-header>
+      <div mat-card-avatar class="user-image"></div>
+      <mat-card-title>Oracle Admin</mat-card-title>
+      <mat-card-subtitle>Select the flight to trigger oracle request for information status</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="example-container mat-elevation-z8">
+        <table mat-table [dataSource]="flightsDetails">
+          <!-- Airline Column -->
+          <ng-container matColumnDef="airline" sticky>
+            <th mat-header-cell *matHeaderCellDef> Airline </th>
+            <td mat-cell *matCellDef="let element"> {{element.airlineName}} </td>
+          </ng-container>
+          <!-- Code Column -->
+          <ng-container matColumnDef="code">
+            <th mat-header-cell *matHeaderCellDef> Code </th>
+            <td mat-cell *matCellDef="let element"> {{element.flightCode}} </td>
+          </ng-container>
+          <!-- Departure Column -->
+          <ng-container matColumnDef="departure">
+            <th mat-header-cell *matHeaderCellDef> Departure </th>
+            <td mat-cell *matCellDef="let element"> {{element.departure}} </td>
+          </ng-container>
+          <!-- Arrival Column -->
+          <ng-container matColumnDef="arrival">
+            <th mat-header-cell *matHeaderCellDef> Arrival </th>
+            <td mat-cell *matCellDef="let element"> {{element.arrival}} </td>
+          </ng-container>
+          <!-- Action Column -->
+          <ng-container matColumnDef="action" stickyEnd>
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+              <div fxLayout="row" fxLayoutGap="6.5%">
+                <mat-form-field fxFlex="60">
+                  <mat-select placeholder="Status" [(value)]="flightSelectedStatusValue">
+                    <mat-option *ngFor="let item of flightStatus" [value]="item.value">
+                      {{item.viewValue}} ({{item.value}})
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <button mat-raised-button class="custom-button" color="primary" (click)="triggerRequest(element.flightCode, flightSelectedStatusValue)"fxFlex="30">Submit</button>
+              </div>
+            </td>
+           </ng-container>
+          <tr mat-header-row *matHeaderRowDef="flightsTableDisplayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: flightsTableDisplayedColumns;"></tr>
+        </table>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+    </mat-card-actions>
+  </mat-card>
+</div>

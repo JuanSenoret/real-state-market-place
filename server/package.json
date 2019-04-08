@@ -1,0 +1,30 @@
+{
+  "name": "flight-surety-server",
+  "version": "1.0.0",
+  "description": "Real State server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bootstrap.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/labsvisual/getting-started-with-hapi-js-part-1.git"
+  },
+  "author": "Juan Senoret",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/labsvisual/getting-started-with-hapi-js-part-1/issues"
+  },
+  "homepage": "https://github.com/labsvisual/getting-started-with-hapi-js-part-1#readme",
+  "dependencies": {
+    "babel-core": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "hapi": "^18.1.0",
+    "hapi-swagger": "^9.4.2",
+    "inert": "^5.1.3",
+    "joi": "^14.3.1",
+    "vision": "^5.4.4",
+    "web3": "^1.0.0-beta.48"
+  }
+}

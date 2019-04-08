@@ -1,0 +1,6 @@
+{
+	"localhost": {
+		"url": "http://localhost:7545",
+		"solnSquareVerifierAddress": "0x4Bf8945AC144292e6E3F74caA313e7a9a25b5633"
+	}
+}

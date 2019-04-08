@@ -1,0 +1,43 @@
+<div class="custom-container" fxLayout="row">
+  <mat-card class="example-card" fxFlex="80">
+    <mat-card-header>
+      <div mat-card-avatar class="user-image"></div>
+      <mat-card-title>Address Account ({{passengerAccount}})</mat-card-title>
+      <mat-card-subtitle>Balance Account {{balance | number:'2.2'}} (Eth)</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="example-container mat-elevation-z8" *ngIf="insurancesDetails">
+        <table mat-table [dataSource]="insurancesDetails">
+          <!-- Code Column -->
+          <ng-container matColumnDef="code" sticky>
+            <th mat-header-cell *matHeaderCellDef> Code </th>
+            <td mat-cell *matCellDef="let element"> {{element.flightCode}} </td>
+          </ng-container>
+          <!-- Amount Column -->
+          <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef> Amount </th>
+            <td mat-cell *matCellDef="let element"> {{element.amount}} (Eth)</td>
+          </ng-container>
+          <!-- Status Column -->
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let element"> {{element.statusText}} </td>
+          </ng-container>
+          <!-- Input Column -->
+          <ng-container matColumnDef="action" stickyEnd>
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+              <div fxLayout="row" fxLayoutGap="6.5%">
+                <button mat-raised-button class="custom-button" color="primary" (click)="withdraw(element.flightCode)" fxFlex="30" [disabled]="isButtonDisabled(element.status)">Withdraw</button>
+              </div>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="insurancesTableDisplayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: insurancesTableDisplayedColumns;"></tr>
+        </table>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+    </mat-card-actions>
+  </mat-card>
+</div>

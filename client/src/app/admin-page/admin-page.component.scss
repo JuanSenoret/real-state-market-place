@@ -1,0 +1,27 @@
+.example-card {
+  max-width: 400px;
+}
+
+.hamburg-image {
+  background-image: url('../../assets/img/rathaus-hamburg.jpg');
+  background-size: cover;
+}
+
+.custom-content{
+  padding-top: 1rem;
+  padding-left: 2rem;
+}
+
+.custom-button {
+  height: 45px !important;
+  width: 120px !important;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
