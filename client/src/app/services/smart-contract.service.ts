@@ -2,8 +2,6 @@ import { InjectionToken} from '@angular/core';
 import Web3 from 'web3';
 import TruffleContract from 'truffle-contract';
 import { environment } from '../../environments/environment';
-import FlightSuretyAppContractAbi from '../../assets/contract/FlightSuretyApp.json';
-import FlightSuretyDataContractAbi from '../../assets/contract/FlightSuretyData.json';
 import SolnSquareVerifierLocalAbi from '../../assets/contract/SolnSquareVerifier-Local.json';
 import SolnSquareVerifierRinkebyAbi from '../../assets/contract/SolnSquareVerifier-Rinkeby.json';
 
@@ -19,16 +17,6 @@ export const WEB3 = new InjectionToken<Web3>('web3', {
       throw new Error('Unable to retrieve the injected Ethereum provider from  MetaMask');
     }
   }
-});
-
-export const FlightSuretyAppSmartContract = new InjectionToken<TruffleContract>('smartContract', {
-  providedIn: 'root',
-  factory: () =>  TruffleContract(FlightSuretyAppContractAbi),
-});
-
-export const FlightSuretyDataSmartContract = new InjectionToken<TruffleContract>('smartContract', {
-  providedIn: 'root',
-  factory: () =>  TruffleContract(FlightSuretyDataContractAbi),
 });
 
 export const SolnSquareVerifierSmartContract = new InjectionToken<TruffleContract>('smartContract', {

@@ -23,11 +23,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { AdminPageComponent } from './admin-page/admin-page.component';
-import { OraclePageComponent } from './oracle-page/oracle-page.component';
-import { FlightSuretyService } from './services/flight-surety-server.service';
 import { EthereumService } from './services/ethereum.service';
 import { SnackbarHomeComponent } from './snackbar/snackbar-home/snackbar-home.component';
-import { MyInsurancesPageComponent } from './my-insurances-page/my-insurances-page.component';
 
 
 @NgModule({
@@ -35,9 +32,7 @@ import { MyInsurancesPageComponent } from './my-insurances-page/my-insurances-pa
     AppComponent,
     SideNavComponent,
     AdminPageComponent,
-    OraclePageComponent,
-    SnackbarHomeComponent,
-    MyInsurancesPageComponent
+    SnackbarHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +70,7 @@ import { MyInsurancesPageComponent } from './my-insurances-page/my-insurances-pa
   entryComponents: [
     SnackbarHomeComponent,
   ],
-  providers: [FlightSuretyService, EthereumService],
+  providers: [EthereumService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
