@@ -24,7 +24,7 @@ In the folder "server" you will find a ser implentation built using Hapi and Swa
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### Prerequisites
+### Pre-requisites
 
 Please make sure you've already installed ganache-cli, Truffle and enabled MetaMask extension in your browser.
 
@@ -183,8 +183,8 @@ Here you can check all the transactions over the smart contract
 ![OpenSea Store Front](readme-images/opensea-store-front.png)
 
 
-**(Optional to mint new tokens in the ERC721 smart contract!)**
 #### Use the client to mint new tokens
+**(Optional to mint new tokens in the ERC721 smart contract!)**
 - Be sure to create new proof.js files using the zokrates framework. The 10 existing proof_*.json files have been already used to mint the 10 existing tokens in the ERC721 contract.
 
 - Change directory to ```client``` folder and install all requisite npm packages (as listed in ```package.json```):
