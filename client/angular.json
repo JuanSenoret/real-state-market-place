@@ -37,6 +37,22 @@
             "es5BrowserSupport": true
           },
           "configurations": {
+            "start-dev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.ts"
+                }
+              ]
+            },
+            "start-prod": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -69,6 +85,12 @@
             "browserTarget": "ClientApp:build"
           },
           "configurations": {
+            "start-dev": {
+              "browserTarget": "ClientApp:build:start-dev"
+            },
+            "start-prod": {
+              "browserTarget": "ClientApp:build:start-prod"
+            },
             "production": {
               "browserTarget": "ClientApp:build:production"
             }
